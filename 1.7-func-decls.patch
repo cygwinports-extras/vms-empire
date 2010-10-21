@@ -1,0 +1,26 @@
+game.c: In function ‘good_cont’:
+game.c:410:14: error: invalid storage class for function ‘mark_cont’
+game.c: At top level:
+game.c:445:1: warning: conflicting types for ‘mark_cont’
+game.c:445:1: error: static declaration of ‘mark_cont’ follows non-static declaration
+game.c:418:2: note: previous implicit declaration of ‘mark_cont’ was here
+
+--- origsrc/vms-empire-1.7/game.c	2002-08-01 13:53:13.000000000 -0500
++++ src/vms-empire-1.7/game.c	2010-10-20 21:38:22.939206700 -0500
+@@ -26,6 +26,7 @@ long remove_land(long loc, long num_land
+ int select_cities();
+ int find_next(long *mapi);
+ int good_cont(long mapi);
++static void mark_cont(long mapi);
+ int xread(FILE *f, char *buf, int size);
+ int xwrite(FILE *f, char *buf, int size);
+ void stat_display( char *mbuf, int round);
+@@ -407,8 +408,6 @@ static long ncity, nland, nshore;
+ int good_cont (mapi)
+ long mapi;
+ {
+-	static void mark_cont();
+-
+ 	long val;
+ 
+ 	ncity = 0; /* nothing seen yet */

@@ -1,0 +1,16 @@
+DESCRIPTION="Solitaire Empire game"
+HOMEPAGE="http://www.catb.org/~esr/${PN}/"
+SRC_URI="http://www.catb.org/~esr/${PN}/${P}.tar.gz"
+PATCH_URI="1.7-func-decls.patch"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake DEBUG="${CFLAGS} -I/usr/include/ncurses"
+}
+
+src_install() {
+	cd ${B}
+	dobin ${PN}.exe
+	doman ${PN}.6
+}
