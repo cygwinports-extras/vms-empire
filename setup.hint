@@ -1,7 +1,0 @@
-category: Games
-requires: libncurses10
-sdesc: "Classic VMS Empire game"
-ldesc: "This is Chuck Simmons' C translation of VMS FORTRAN Empire, a 
-solitaire version. Nobody seems to be maintaining it any more. It is 
-colorized and updated for ANSI/POSIX C, and this version works with 
-ncurses."

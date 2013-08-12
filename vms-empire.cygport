@@ -1,0 +1,22 @@
+NAME="vms-empire"
+VERSION=1.8
+RELEASE=1
+CATEGORY="Games"
+SUMMARY="Classic VMS Empire game"
+DESCRIPTION="This is Chuck Simmons' C translation of VMS FORTRAN Empire, a
+solitaire version. Nobody seems to be maintaining it any more. It is colorized
+and updated for ANSI/POSIX C, and this version works with ncurses."
+HOMEPAGE="http://www.catb.org/~esr/vms-empire/"
+SRC_URI="http://www.catb.org/~esr/vms-empire/${NAME}-${VERSION}.tar.gz"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake CFLAGS="${CFLAGS} -I/usr/include/ncurses"
+}
+
+src_install() {
+	cd ${B}
+	dobin vms-empire.exe
+	newman empire.6 vms-empire.6
+}
