@@ -1,5 +1,5 @@
 NAME="vms-empire"
-VERSION=1.8
+VERSION=1.13
 RELEASE=1
 CATEGORY="Games"
 SUMMARY="Classic VMS Empire game"
@@ -12,7 +12,7 @@ SRC_URI="http://www.catb.org/~esr/vms-empire/${NAME}-${VERSION}.tar.gz"
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake CFLAGS="${CFLAGS} -I/usr/include/ncurses"
+	cygmake CFLAGS="${CFLAGS}"
 }
 
 src_install() {
